@@ -1,4 +1,4 @@
-@extends('dashboard.index')
+@extends('index')
     @section('content')
     <div class="row">
         <div class="col col-md-12 table-responsive">
@@ -7,23 +7,15 @@
                     <thead>
                         <tr>
                             <th style="width: 15%;">Brand Name</th>
-                            <th style="width: 10%;">Type</th>
-                            <th style="width: 20%;">Strength</th>
-                            <th style="width: 15%;">Packsize</th>
-                            <th style="width: 15%;">Group/Generic</th>
-                            <th style="width: 20%;">Company Name</th>
-                            <th style="width: 15%;">Action</th>
+                            <th style="width: 10%;">Description</th>
+                            <th style="width: 15%;">Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><?php echo $brand_name->brand_name;?></td>
-                            <td><?php echo $brand_name->type_name;?></td>
-                            <td><?php echo $brand_name->strength;?></td>
-                            <td><?php echo $brand_name->packsize;?></td>
-                            <td><?php echo $brand_name->generic_name;?></td>
-                            <td><?php echo $brand_name->company_name;?></td>
-                            <td><?php echo $brand_name->status==1 ? 'Active': 'InActive';?></td>
+                            <td><?php echo $brand_data->brand_name;?></td>
+                            <td><?php echo $brand_data->description;?></td>
+                            <td><?php echo $brand_data->status==1 ? 'Active': 'InActive';?></td>
                         </tr>
                     </tbody>
                 </table>

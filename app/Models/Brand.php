@@ -11,12 +11,7 @@ class Brand extends Model
     protected $fillable = [
         'id',
         'brand_name',
-        'generic_id',
-        'company_id',
-        'type',
-        'strength',
-        'price',
-        'packsize',
-        'status'
+        'description',
+        'status',
     ];
 }
