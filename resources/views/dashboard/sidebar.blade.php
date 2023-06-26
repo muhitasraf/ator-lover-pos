@@ -10,7 +10,25 @@
 
             <li class="nav-item">
                 <a class="nav-link active" href="#">
-                    <i class="fa-solid fa-prescription-bottle-medical mr-2"></i> Medicine Brand
+                    <i class="fa-solid fa-prescription-bottle-medical mr-2"></i> Brand
+                </a>
+                <ul class="list-unstyled ml-3">
+                    <li class="list-item">
+                        <a href="{{ route('brand.create') }}" class="nav-link active">
+                            <span class="menu-collapsed">Add Brand</span>
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="{{ route('brand') }}" class="nav-link active">
+                            <span class="menu-collapsed">Brand List</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link active" href="#">
+                    <i class="fa-solid fa-prescription-bottle-medical mr-2"></i> Brand
                 </a>
                 <ul class="list-unstyled ml-3">
                     <li class="list-item">
