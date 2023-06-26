@@ -2,6 +2,9 @@
     @section('content')
     <div class="row">
         <div class="col col-md-12 table-responsive">
+            <a href="{{ route('brand.create') }}" class="btn btn-info mb-2">Create Brand</a>
+            <a href="{{ route('brand') }}" class="btn btn-info mb-2">Brand List</a>
+
             <div class="table-responsive">
             	<table class="table table-bordered table-striped table-hover">
                     <thead>
@@ -13,9 +16,9 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><?php echo $brand_data->brand_name;?></td>
-                            <td><?php echo $brand_data->description;?></td>
-                            <td><?php echo $brand_data->status==1 ? 'Active': 'InActive';?></td>
+                            <td>{{$brand_data->brand_name}}</td>
+                            <td>{{$brand_data->description}}</td>
+                            <td>{{$brand_data->status==1 ? 'Active': 'InActive'}}</td>
                         </tr>
                     </tbody>
                 </table>

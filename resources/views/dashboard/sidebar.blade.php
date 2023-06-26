@@ -28,63 +28,39 @@
 
             <li class="nav-item">
                 <a class="nav-link active" href="#">
-                    <i class="fa-solid fa-prescription-bottle-medical mr-2"></i> Brand
+                    <i class="fa-solid fa-prescription-bottle-medical mr-2"></i> Product
                 </a>
                 <ul class="list-unstyled ml-3">
                     <li class="list-item">
-                        <a href="{{ route('brand.create') }}" class="nav-link active">
-                            <span class="menu-collapsed">Add Brand</span>
+                        <a href="{{ route('product.create') }}" class="nav-link active">
+                            <span class="menu-collapsed">Add Product</span>
                         </a>
                     </li>
                     <li class="list-item">
-                        <a href="{{ route('brand') }}" class="nav-link active">
-                            <span class="menu-collapsed">Brand List</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-
-            {{-- <li class="nav-item">
-                <a class="nav-link active" href="#" >
-                    <i class="fa-solid fa-scale-balanced"></i> Invoice
-                </a>
-                <ul class="list-unstyled ml-3">
-                    <li>
-                        <a href="{{ route('invoice/create') }}" class="nav-link active">
-                            <span class="menu-collapsed">Add Invoice</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('invoice') }}" class="nav-link active">
-                            <span class="menu-collapsed">Invoice List</span>
+                        <a href="{{ route('product') }}" class="nav-link active">
+                            <span class="menu-collapsed">Product List</span>
                         </a>
                     </li>
                 </ul>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link active" href="#" >
-                    <i class="fa-regular fa-file-lines mr-1"></i> Reports
+                <a class="nav-link active" href="#">
+                    <i class="fa-solid fa-prescription-bottle-medical mr-2"></i> Type
                 </a>
                 <ul class="list-unstyled ml-3">
-                    <li>
-                        <a href="{{ route('report/daily_report') }}" class="nav-link active">
-                            <span class="menu-collapsed">Daily Sales</span>
+                    <li class="list-item">
+                        <a href="{{ route('type.create') }}" class="nav-link active">
+                            <span class="menu-collapsed">Add Type</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="{{ route('report/sales_report') }}" class="nav-link active">
-                            <span class="menu-collapsed">Sales Report</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('report/purchase_report') }}" class="nav-link active">
-                            <span class="menu-collapsed">Purchase Report</span>
+                    <li class="list-item">
+                        <a href="{{ route('type') }}" class="nav-link active">
+                            <span class="menu-collapsed">Type List</span>
                         </a>
                     </li>
                 </ul>
-            </li> --}}
+            </li>
 
         </ul>
 

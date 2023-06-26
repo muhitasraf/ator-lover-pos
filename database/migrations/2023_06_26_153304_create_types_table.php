@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('types', function (Blueprint $table) {
             $table->id();
-            $table->string('product_name',150)->collation('utf8_general_ci');
-            $table->integer('brand_id');
-            $table->integer('capacity');
-            $table->integer('type');
-            $table->string('details',250)->collation('utf8_general_ci');
+            $table->string('type_name',150)->collation('utf8_general_ci');
             $table->tinyInteger('status')->default(1);
             $table->tinyInteger('created_by')->nullable();
             $table->tinyInteger('updated_by')->nullable();
@@ -34,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('types');
     }
 };
