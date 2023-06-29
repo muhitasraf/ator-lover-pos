@@ -62,6 +62,60 @@
                 </ul>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link active" href="#">
+                    <i class="fa-solid fa-prescription-bottle-medical mr-2"></i> Purchase
+                </a>
+                <ul class="list-unstyled ml-3">
+                    <li class="list-item">
+                        <a href="{{ route('purchase.create') }}" class="nav-link active">
+                            <span class="menu-collapsed">Purchase Product</span>
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="{{ route('purchase') }}" class="nav-link active">
+                            <span class="menu-collapsed">Purchase List</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link active" href="#">
+                    <i class="fa-solid fa-prescription-bottle-medical mr-2"></i> Sales
+                </a>
+                <ul class="list-unstyled ml-3">
+                    <li class="list-item">
+                        <a href="{{ route('type.create') }}" class="nav-link active">
+                            <span class="menu-collapsed">New Sales</span>
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="{{ route('type') }}" class="nav-link active">
+                            <span class="menu-collapsed">Sales List</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link active" href="#">
+                    <i class="fa-solid fa-prescription-bottle-medical mr-2"></i> Report
+                </a>
+                <ul class="list-unstyled ml-3">
+                    <li class="list-item">
+                        <a href="{{ route('type.create') }}" class="nav-link active">
+                            <span class="menu-collapsed">Add Type</span>
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="{{ route('type') }}" class="nav-link active">
+                            <span class="menu-collapsed">Type List</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
         </ul>
 
     </div>

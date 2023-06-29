@@ -21,7 +21,7 @@
                             <td>{{ $product_data->product_name}}</td>
                             <td>{{ $product_data->brand->brand_name}}</td>
                             <td>{{ $product_data->capacity}}</td>
-                            <td>{{ $product_data->type}}</td>
+                            <td>{{ $product_data->type->type_name}}</td>
                             <td>{{ $product_data->details}}</td>
                             <td>{{ $product_data->status==1 ? "Active" : "In-Active"}}</td>
                         </tr>

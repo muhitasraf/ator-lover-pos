@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\TypeController;
 use Illuminate\Support\Facades\Route;
 
@@ -49,3 +50,14 @@ Route::get('type/{id}',[TypeController::class, 'show']);
 Route::get('type/{id}/edit',[TypeController::class, 'edit']);
 Route::put('type/update/{id}',[TypeController::class, 'update'])->name('type.update');
 Route::delete('type/delete/{id}',[TypeController::class, 'destroy'])->name('type.destroy');
+
+Route::get('purchase',[PurchaseController::class, 'index'])->name('purchase');
+Route::get('purchase/create',[PurchaseController::class, 'create'])->name('purchase.create');
+Route::post('purchase/store',[PurchaseController::class, 'store'])->name('purchase.store');
+Route::get('purchase/{id}',[PurchaseController::class, 'show']);
+Route::get('purchase/{id}/edit',[PurchaseController::class, 'edit']);
+Route::put('purchase/update/{id}',[PurchaseController::class, 'update'])->name('purchase.update');
+Route::delete('purchase/delete/{id}',[PurchaseController::class, 'destroy'])->name('purchase.destroy');
+
+Route::post('product_by_brand',[PurchaseController::class, 'product_by_brand']);
+Route::post('product_details',[PurchaseController::class, 'product_details']);
