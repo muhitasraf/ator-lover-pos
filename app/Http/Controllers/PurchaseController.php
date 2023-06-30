@@ -90,21 +90,42 @@ class PurchaseController extends Controller
         $brand_data = Brand::all();
         $type_data = Type::all();
         $products = DB::table('products')->select('id','product_name')->get();
-        // dd($purchase_data);
         return view('purchase/edit',compact('title','purchase_data','brand_data','products','type_data','id'));
     }
 
     public function update(Request $request, $id)
     {
-        $purchase = Purchase::find($id);
-        $purchase->purchase_name = $request->input('purchase_name');
-        $purchase->brand_id = $request->input('brand_name');
-        $purchase->capacity = $request->input('capacity');
-        $purchase->type = $request->input('type');
-        $purchase->details = $request->input('details');
-        $purchase->status = $request->input('status');
-        $purchase->updated_by = 1;
-        $result = $purchase->save();
+        $tran_master_data = [
+            "invoice_no" => $request->input('invoice_no'),
+            "total_qty" => $request->input('total_qty'),
+            "grand_total" => $request->input('grand_total'),
+            "tran_date" => date('Y-m-d'),
+            "tran_type" => 1
+        ];
+
+        $tran_id = $request->input('tran_id');
+
+        DB::table('tran_master')->where('id',$id)->update($tran_master_data);
+
+        DB::table('stock_in')->where('tran_id',$tran_id)->delete();
+
+        $stock_in_data = [];
+
+        for($i=0; $i<count($request->input('brand_name')); $i++){
+            $stock_in_data[] = [
+                "tran_id" => $tran_id,
+                "brand_id" => $request->input('brand_name')[$i],
+                "product_id" => $request->input('product_name')[$i],
+                "capacity" => $request->input('capacity')[$i],
+                "price" => $request->input('price')[$i],
+                "qty" => $request->input('qty')[$i],
+                "total_price" => $request->input('total')[$i],
+                "tran_date" => $request->input('tran_date'),
+            ];
+        }
+
+        $result = DB::table('stock_in')->insert($stock_in_data);
+
         if($result){
             return redirect('purchase');
         }
@@ -112,9 +133,10 @@ class PurchaseController extends Controller
 
     public function destroy($id)
     {
-        $result = Purchase::where('id',$id)->delete();
+        $result = DB::table('tran_master')->where('id',$id)->delete();
+        $result = DB::table('stock_in')->where('tran_id',$id)->delete();
         if($result){
-            return redirect('brands');
+            return redirect('purchase');
         }
     }
 

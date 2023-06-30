@@ -7,24 +7,23 @@
             </a>
         </div>
     </div>
-
+    {{-- @dd($purchase_data[0]->tran_id); --}}
     <!-- company details content -->
-    <form action="{{ route('purchase.store')}}" method="POST">
+    <form action="{{ route('purchase.update',$purchase_data[0]->tran_id)}}" method="post">
         @csrf
-        {{-- @dd($brand_data) --}}
+        @method('PUT')
         <div class="row">
             <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="form-group">
                     <label class="font-weight-bold" for="invoice_no">Invoice No :</label>
                     <input type="text" class="form-control form-control-sm" name="invoice_no" value="{{ $purchase_data[0]->invoice_no ?? ''}}" id="invoice_no" readonly>
-                    <code class="text-danger small font-weight-bold float-right" id="name_error" style="display: none;"></code>
+                    <input type="hidden" name="tran_id" value="{{$purchase_data[0]->tran_id}}">
                 </div>
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="form-group">
                     <label class="font-weight-bold" for="purchase_date">Purchase Date :</label>
                     <input type="date" class="form-control form-control-sm purchase_date" name="purchase_date" value="{{ $purchase_data[0]->tran_date }}" id="purchase_date">
-                    <code class="text-danger small font-weight-bold float-right" id="name_error" style="display: none;"></code>
                 </div>
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-3">
@@ -86,7 +85,10 @@
                                     @endphp
                                 </select>
                             </td>
-                            <td><input type="text" name="capacity[]" value="{{$purchase->capacity}}" class="form-control form-control-sm capacity"></td>
+                            <td>
+                                <input type="text" name="capacity[]" value="{{$purchase->capacity}}" class="form-control form-control-sm capacity">
+
+                            </td>
                             <td><input type="text" name="price[]" value="{{$purchase->price}}" class="form-control form-control-sm price"></td>
                             <td><input type="text" name="qty[]" value="{{$purchase->qty}}"  class="form-control form-control-sm qty" /></td>
                             <td><input type="text" name="total[]" value="{{$purchase->total_price}}" class="form-control form-control-sm total" readonly/></td>

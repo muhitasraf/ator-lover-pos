@@ -29,7 +29,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('brands',[BrandController::class, 'index'])->name('brand');
 Route::get('brands/create',[BrandController::class, 'create'])->name('brand.create');
-Route::post('brands/store',[BrandController::class, 'store']);
 Route::get('brands/{id}',[BrandController::class, 'show']);
 Route::get('brands/{id}/edit',[BrandController::class, 'edit']);
 Route::put('brands/update/{id}',[BrandController::class, 'update']);
