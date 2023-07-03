@@ -38,9 +38,10 @@
                     <tr>
                         <th>Brand Name</th>
                         <th>Product Name</th>
+                        <th>Capacity</th>
                         <th>Price</th>
                         <th>Qty</th>
-                        <th>Total</th>
+                        <th> Total</th>
                     </tr>
                 </thead>
                 <tbody class="append_row">
@@ -51,6 +52,9 @@
                             </td>
                             <td>
                                 {{ $purchase->product_name }}
+                            </td>
+                            <td>
+                                {{ $purchase->capacity_name }}
                             </td>
                             <td>
                                 {{ $purchase->price }}
@@ -66,7 +70,7 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="3">Total</td>
+                        <td colspan="4"><b>Total</b></td>
                         <td>{{$purchase_data[0]->total_qty}}</td>
                         <td>{{$purchase_data[0]->grand_total}}</td>
                     </tr>

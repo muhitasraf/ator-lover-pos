@@ -7,12 +7,22 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="font-weight-bold" for="product_name">Product Name :</label>
-                            <input type="text" class="form-control product_name" placeholder="Product Name" name="product_name" id="product_name" required>
+                            <label class="font-weight-bold" for="brand_name">Brand Name :</label>
+                            <select class="form-control" name="brand_name" id="brand_name">
+                                <option value="" disable>Select Brand</option>
+                                @foreach ($brand_data as $brand)
+                                    <option value="{{ $brand->id }}">{{ $brand->brand_name }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <label class="font-weight-bold" for="capacity">Capacity :</label>
-                            <input type="text" class="form-control capacity" placeholder="Capacity" name="capacity" id="capacity">
+                            <select class="form-control select2" name="capacity" id="capacity">
+                                <option value="" disable>Select Capacity</option>
+                                @foreach ($capacity_data as $capacity)
+                                    <option value="{{ $capacity->id }}">{{ $capacity->capacity_name }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <label class="font-weight-bold" for="packsize">Details (Optional) :</label>
@@ -21,13 +31,8 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="font-weight-bold" for="brand_name">Brand Name :</label>
-                            <select class="form-control" name="brand_name" id="brand_name">
-                                <option value="" disable>Select Brand</option>
-                                @foreach ($brand_data as $brand)
-                                    <option value="{{ $brand->id }}">{{ $brand->brand_name }}</option>
-                                @endforeach
-                            </select>
+                            <label class="font-weight-bold" for="product_name">Product Name :</label>
+                            <input type="text" class="form-control product_name" placeholder="Product Name" name="product_name" id="product_name" required>
                         </div>
                         <div class="form-group">
                             <label class="font-weight-bold" for="type">Type :</label>

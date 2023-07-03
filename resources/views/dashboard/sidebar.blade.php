@@ -10,7 +10,7 @@
 
             <li class="nav-item">
                 <a class="nav-link active" href="#">
-                    <i class="fa-solid fa-prescription-bottle-medical mr-2"></i> Brand
+                    <i class="fa-solid fa-industry mr-2"></i> Brand
                 </a>
                 <ul class="list-unstyled ml-3">
                     <li class="list-item">
@@ -28,7 +28,7 @@
 
             <li class="nav-item">
                 <a class="nav-link active" href="#">
-                    <i class="fa-solid fa-prescription-bottle-medical mr-2"></i> Product
+                    <i class="fa-brands fa-product-hunt mr-2"></i></i> Product
                 </a>
                 <ul class="list-unstyled ml-3">
                     <li class="list-item">
@@ -46,7 +46,7 @@
 
             <li class="nav-item">
                 <a class="nav-link active" href="#">
-                    <i class="fa-solid fa-prescription-bottle-medical mr-2"></i> Type
+                    <i class="fa-solid fa-landmark mr-2"></i></i> Type
                 </a>
                 <ul class="list-unstyled ml-3">
                     <li class="list-item">
@@ -64,7 +64,25 @@
 
             <li class="nav-item">
                 <a class="nav-link active" href="#">
-                    <i class="fa-solid fa-prescription-bottle-medical mr-2"></i> Purchase
+                    <i class="fa-solid fa-box-open mr-2"></i>Capacity
+                </a>
+                <ul class="list-unstyled ml-3">
+                    <li class="list-item">
+                        <a href="{{ route('capacity.create') }}" class="nav-link active">
+                            <span class="menu-collapsed">Add Capacity</span>
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="{{ route('capacity') }}" class="nav-link active">
+                            <span class="menu-collapsed">Capacity List</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link active" href="#">
+                    </i><i class="fa-solid fa-cart-shopping mr-2"></i> Purchase
                 </a>
                 <ul class="list-unstyled ml-3">
                     <li class="list-item">
@@ -82,16 +100,16 @@
 
             <li class="nav-item">
                 <a class="nav-link active" href="#">
-                    <i class="fa-solid fa-prescription-bottle-medical mr-2"></i> Sales
+                    <i class="fa-solid fa-scale-unbalanced mr-2"></i> Sales
                 </a>
                 <ul class="list-unstyled ml-3">
                     <li class="list-item">
-                        <a href="{{ route('type.create') }}" class="nav-link active">
+                        <a href="{{ route('sales.create') }}" class="nav-link active">
                             <span class="menu-collapsed">New Sales</span>
                         </a>
                     </li>
                     <li class="list-item">
-                        <a href="{{ route('type') }}" class="nav-link active">
+                        <a href="{{ route('sales') }}" class="nav-link active">
                             <span class="menu-collapsed">Sales List</span>
                         </a>
                     </li>
@@ -100,17 +118,17 @@
 
             <li class="nav-item">
                 <a class="nav-link active" href="#">
-                    <i class="fa-solid fa-prescription-bottle-medical mr-2"></i> Report
+                    <i class="fa-solid fa-file-lines mr-2"></i> Report
                 </a>
                 <ul class="list-unstyled ml-3">
                     <li class="list-item">
                         <a href="{{ route('type.create') }}" class="nav-link active">
-                            <span class="menu-collapsed">Add Type</span>
+                            <span class="menu-collapsed">Daily Sales</span>
                         </a>
                     </li>
                     <li class="list-item">
                         <a href="{{ route('type') }}" class="nav-link active">
-                            <span class="menu-collapsed">Type List</span>
+                            <span class="menu-collapsed">Monthly Sales</span>
                         </a>
                     </li>
                 </ul>

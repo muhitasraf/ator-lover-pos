@@ -7,21 +7,6 @@
             @method('PUT')
             <div class="form-content">
                 <div class="row">
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="font-weight-bold" for="product_name">Product Name :</label>
-                            <input type="text" value="{{ $product_data->product_name }}" class="form-control product_name" placeholder="Product Name" name="product_name" id="product_name" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="font-weight-bold" for="capacity">Capacity :</label>
-                            <input type="text" value="{{ $product_data->capacity }}" class="form-control capacity" placeholder="Capacity" name="capacity" id="capacity">
-                        </div>
-                        <div class="form-group">
-                            <label class="font-weight-bold" for="details">Details (Optional) :</label>
-                            <input type="text" value="{{ $product_data->details }}" class="form-control details" placeholder="Details" name="details" id="details">
-                        </div>
-                    </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="font-weight-bold" for="brand_name">Brand Name:</label>
@@ -37,6 +22,31 @@
                                     <option value="{{ $brand->id }}" {{$selected}}>{{ $brand->brand_name }}</option>
                                 @endforeach
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="capacity">Capacity :</label>
+                            <select class="form-control" name="capacity" id="capacity">
+                                <option value="" disable>Select Capacity</option>
+                                @foreach ($capacity_data as $capacity)
+                                    @php
+                                    $selected = "";
+                                        if($product_data->capacity_id == $capacity->id){
+                                            $selected = "selected";
+                                        }
+                                    @endphp
+                                    <option value="{{ $capacity->id }}" {{$selected}}>{{ $capacity->capacity_name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="details">Details (Optional) :</label>
+                            <input type="text" value="{{ $product_data->details }}" class="form-control details" placeholder="Details" name="details" id="details">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="product_name">Product Name :</label>
+                            <input type="text" value="{{ $product_data->product_name }}" class="form-control product_name" placeholder="Product Name" name="product_name" id="product_name" required>
                         </div>
                         <div class="form-group">
                             <label class="font-weight-bold" for="type">Type :</label>

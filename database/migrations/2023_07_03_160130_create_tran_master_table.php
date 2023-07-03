@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('tran_master', function (Blueprint $table) {
             $table->id();
-            $table->string('product_name',150)->collation('utf8_general_ci');
-            $table->integer('brand_id');
-            $table->integer('capacity_id');
-            $table->integer('type_id');
-            $table->string('details',250)->collation('utf8_general_ci')->nullable();
-            $table->tinyInteger('status')->default(1);
+            $table->string('tran_id');
+            $table->integer('total_qty');
+            $table->integer('discount_per')->nullable();
+            $table->double('total_discount')->nullable();
+            $table->double('grand_total')->nullable();
+            $table->date('tran_date')->nullable();
+            $table->integer('tran_type')->nullable();
             $table->tinyInteger('created_by')->nullable();
             $table->tinyInteger('updated_by')->nullable();
             $table->timestamps();
@@ -34,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('tran_master');
     }
 };

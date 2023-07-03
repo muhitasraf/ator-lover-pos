@@ -13,12 +13,28 @@
     <form action="{{ route('purchase.store')}}" method="POST">
         @csrf
         <div class="row">
-            <div class="col-md-12">
-                <label for="basic-url" class="form-label">Your vanity URL</label>
-                <div class="input-group">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="form-group">
+                    <label class="font-weight-bold" for="invoice_no">Order No :</label>
                     <input type="text" name="invoice_no" value="{{ $new_invoice_no }}" class="form-control form-control-sm invoice_no">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="form-group">
+                    <label class="font-weight-bold" for="purchase_date">Purchase Date :</label>
                     <input type="date" name="tran_date" class="form-control form-control-sm mx-1 tran_date">
                 </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="form-group">
+                    <label class="font-weight-bold" for="remarks">Remarks :</label>
+                    <input type="text" class="form-control form-control-sm remarks" name="remarks" placeholder="Remarks" id="remarks">
+                    <code class="text-danger small font-weight-bold float-right" id="name_error" style="display: none;"></code>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
                 <table class="table table-bordered table-striped mt-2 row_add purchase_table">
                     <thead>
                         <tr>
@@ -51,7 +67,12 @@
                                     <option value="0">Select Product</option>
                                 </select>
                             </td>
-                            <td><input type="text" name="capacity[]" class="form-control form-control-sm capacity"></td>
+                            <td>
+                                <select class="form-control select2_1 select2 capacity" style="width : 100%;" name="capacity[]" id="capacity">
+                                    <option value="0">Select Capacity</option>
+                                </select>
+                                {{-- <input type="text" name="capacity[]" class="form-control form-control-sm capacity"> --}}
+                            </td>
                             <td><input type="text" name="price[]" class="form-control form-control-sm price"></td>
                             <td><input type="text" name="qty[]" class="form-control form-control-sm qty" /></td>
                             <td><input type="text" name="total[]" class="form-control form-control-sm total" readonly/></td>
@@ -97,7 +118,7 @@
                     if(result.length){
                         let product_data =  result;
                         for(let i=0; i<product_data.length; i++){
-                            option += '<option value="'+ product_data[i].id +'">'+ product_data[i].product_name+'</option>';
+                            option += '<option value="'+ product_data[i].product_name +'">'+ product_data[i].product_name+'</option>';
                         }
                         this_key.closest('tr').find('td select.product_name').empty().append(option);
                     }else{
@@ -110,14 +131,24 @@
 
         $('.purchase_table').on('change', '.product_name',function(){
             let this_key = $(this);
-            let product_id = this_key.val();
+            let product_name = this_key.find(':selected').text();
             $.ajax({
-                url: '{{ URL::to("product_details") }}',
+                url: '{{ URL::to("capacity_by_product") }}',
                 type: 'POST',
-                data: {'product_id':product_id, '_token' : '{{csrf_token()}}'},
+                data: {'product_name':product_name, '_token' : '{{csrf_token()}}'},
                 success: function(result){
-                    let product_details =  result;
-                    this_key.closest('tr').find('td input.capacity').val(product_details.capacity);
+                    let capacity_name =  result;
+                    let option = '<option value="0">Select Capacity</option>';
+                    if(result.length){
+                        let capacity_name =  result;
+                        for(let i=0; i<capacity_name.length; i++){
+                            option += '<option value="'+ capacity_name[i].id +'">'+ capacity_name[i].capacity_name+'</option>';
+                        }
+                        this_key.closest('tr').find('td select.capacity').empty().append(option);
+                    }else{
+                        this_key.closest('tr').find('td select.capacity').empty().append(option);
+                        toastr.success("Something went wrong!");
+                    }
                 }
             });
         });

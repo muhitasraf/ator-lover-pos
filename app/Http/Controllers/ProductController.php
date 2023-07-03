@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use App\Models\Capacity;
 use App\Models\Product;
 use App\Models\Type;
 use Illuminate\Http\Request;
@@ -12,7 +13,7 @@ class ProductController extends Controller
     public function index()
     {
         $title = 'All Product List';
-        $product_data = Product::with('brand','type')->paginate(5);
+        $product_data = Product::with('brand','type','capacity')->paginate(5);
         return view('product.index',compact('title','product_data'));
     }
 
@@ -21,7 +22,8 @@ class ProductController extends Controller
         $title = 'Create New Product';
         $brand_data = Brand::get();
         $type_data = Type::get();
-        return view('product.create',compact('title','brand_data','type_data'));
+        $capacity_data = Capacity::get();
+        return view('product.create',compact('title','brand_data','type_data','capacity_data'));
     }
 
     public function store(Request $request)
@@ -29,8 +31,8 @@ class ProductController extends Controller
         $product = new Product();
         $product->product_name = $request->input('product_name');
         $product->brand_id = $request->input('brand_name');
-        $product->capacity = $request->input('capacity');
-        $product->type = $request->input('type');
+        $product->capacity_id = $request->input('capacity');
+        $product->type_id = $request->input('type');
         $product->details = $request->input('details');
         $product->status = $request->input('status');
         $product->created_by = 1;
@@ -53,7 +55,8 @@ class ProductController extends Controller
         $product_data = Product::where('id',$id)->first();
         $brand_data = Brand::all();
         $type_data = Type::all();
-        return view('product/edit',compact('title','product_data','brand_data','type_data','id'));
+        $capacity_data = Capacity::get();
+        return view('product/edit',compact('title','product_data','brand_data','type_data','capacity_data','id'));
     }
 
     public function update(Request $request, $id)
@@ -61,8 +64,8 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->product_name = $request->input('product_name');
         $product->brand_id = $request->input('brand_name');
-        $product->capacity = $request->input('capacity');
-        $product->type = $request->input('type');
+        $product->capacity_id = $request->input('capacity');
+        $product->type_id = $request->input('type');
         $product->details = $request->input('details');
         $product->status = $request->input('status');
         $product->updated_by = 1;

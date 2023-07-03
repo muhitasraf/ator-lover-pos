@@ -13,14 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('stock_out', function (Blueprint $table) {
             $table->id();
-            $table->string('product_name',150)->collation('utf8_general_ci');
+            $table->integer('tran_id');
             $table->integer('brand_id');
+            $table->string('product_id');
             $table->integer('capacity_id');
-            $table->integer('type_id');
-            $table->string('details',250)->collation('utf8_general_ci')->nullable();
-            $table->tinyInteger('status')->default(1);
+            // $table->integer('type_id');
+            $table->integer('qty');
+            $table->integer('price');
+            $table->integer('discount_per')->nullable();
+            $table->integer('discount_amt')->nullable();
+            $table->integer('total_price')->nullable();
             $table->tinyInteger('created_by')->nullable();
             $table->tinyInteger('updated_by')->nullable();
             $table->timestamps();
@@ -34,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('stock_out');
     }
 };

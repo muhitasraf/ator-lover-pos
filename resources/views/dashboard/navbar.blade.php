@@ -1,5 +1,9 @@
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="{{ url('/') }}">Ator Lover POS</a>
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="{{ url('/') }}">
+        <img src="{{ asset('uploads/images/attar_lover_logo.jpeg') }}" style="border-radius: 50%;display: inline-block;" width="45px" height="45px" alt="attar_lover_logo.jpeg">
+        <img src="{{ asset('uploads/images/attar_lover_logo_text.jpg') }}" style="border-radius: 50%;display: inline-block;" width="140px" height="45px" alt="attar_lover_logo.jpeg">
+        {{-- <span style="font-size: 25px;font-family: Arial, Helvetica, sans-serif;">Attar Lover</span> --}}
+    </a>
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
         data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

@@ -18,4 +18,9 @@ class Product extends Model
     {
         return $this->belongsTo(Type::class,'type_id');
     }
+
+    public function capacity()
+    {
+        return $this->belongsTo(Capacity::class,'capacity_id');
+    }
 }
